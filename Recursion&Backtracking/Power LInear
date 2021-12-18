@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        // write your code here
+        Scanner scn = new Scanner(System.in);
+        int x = scn.nextInt();
+        int n = scn.nextInt();
+        int print = power(x,n);
+        System.out.println(print);
+        
+    }
+
+    public static int power(int x, int n){
+
+
+// base case of the problem
+    if(n==0){
+        return 1;
+    }
+        
+
+//  faith of the problem 
+        int faith = power(x,n/2);
+// meeting faith and expectation
+// this is for even case
+        int fe = faith * faith;
+        
+// handling of odd cases by multiplying an x
+        if(n%2==1){
+         fe = fe * x;
+
+        }
+       // return fath and epecation meet
+        return fe;
+    }
+
+}
