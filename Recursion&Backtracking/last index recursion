@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        // write your code here
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+        for(int i = 0; i<arr.length; i++){
+            arr[i] = scn.nextInt();
+        }
+        // input of data 
+        int d = scn.nextInt();
+    
+        int li = lastIndex(arr,0,d);
+        System.out.println(li);
+    }
+
+    public static int lastIndex(int[] arr, int idx, int x){
+        // base case 
+       if(idx == arr.length){
+           return -1;
+       }
+
+// faith 
+     int lisa = lastIndex(arr, idx+1, x);
+     // checking if doesn't get element in faith part
+     if(lisa == -1){
+         // if we get the element in arr[idx]
+         if(arr[idx] == x){
+             return idx;
+
+         }else{
+             // for not getting an element
+             return -1;
+
+         }
+     }else{
+         // if we get the element in faith part then return that
+         return lisa;
+     }
+     
+    }
+
+}
